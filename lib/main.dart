@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'app_view.dart';
+import 'package:grocery_hub_capstone/routes/router_generator.dart';
+import 'package:grocery_hub_capstone/routes/routes.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -11,8 +15,16 @@ class MyApp extends StatelessWidget {
       title: 'Grocery Hub',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Grocery Hub'),
+      // builder: (_, child) => AppView(
+      //   child: child(context),
+      // ),
+      initialRoute: routeHome,
+      navigatorKey: navKey,
+      
+      //onGenerateRoute: RouteGenerator,
     );
   }
 }
