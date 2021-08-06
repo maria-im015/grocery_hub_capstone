@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 //import 'package:page_transition/page_transition.dart';
 
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
+import 'package:grocery_hub_capstone/pages/consume_item.dart';
+import 'package:grocery_hub_capstone/pages/consume_arguments.dart';
+import 'package:grocery_hub_capstone/pages/consume_detailed.dart';
 
 
 void main() => runApp(MyApp());
@@ -15,8 +18,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: MyHomePage(),
-    );
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(),
+        '/profile': (context) => ConsumeItem()
+      },
+      onGenerateRoute: (settings) {
+          if (settings.name == '/detailed-profile') {
+            Object? args = settings.arguments;
+            return MaterialPageRoute(
+                builder: (context) => ConsumeDetailed(
+                      name: args.name,
+                      email: args.email,
+                    ));
+          } 
+          return null;
+        });
   }
 }
 
@@ -26,7 +43,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       drawer: MenuBar(),
       appBar: AppBar(
-        title: Text('Menu'),
+        title: Text('Grocery Hub'),
       ),
       body: Center(
         child: Text('Home'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_hub_capstone/pages/consume_item.dart';
 
 class MenuBar extends StatelessWidget {
   @override
@@ -7,16 +8,13 @@ class MenuBar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: Text(
-              'Side menu',
-              style: TextStyle(color: Colors.white, fontSize: 25),
-            ),
+          Container(
+            constraints: BoxConstraints.expand(height: 100.0),
             decoration: BoxDecoration(
                 color: Colors.green,
                 image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage('assets/images/logo.jpg'))),
+                    image: AssetImage("/images/logo.jpg"))),
           ),
           ListTile(
             leading: Icon(Icons.home),
@@ -26,7 +24,10 @@ class MenuBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.delete),
             title: Text('Consume Item'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ConsumeItem()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.list),
