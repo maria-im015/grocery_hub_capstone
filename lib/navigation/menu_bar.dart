@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_hub_capstone/pages/consume_item.dart';
+import 'package:grocery_hub_capstone/pages/grocery_list.dart';
+import 'package:grocery_hub_capstone/pages/inventory.dart';
+import 'package:grocery_hub_capstone/pages/low_stock.dart';
 
 class MenuBar extends StatelessWidget {
   @override
@@ -11,7 +14,6 @@ class MenuBar extends StatelessWidget {
           Container(
             constraints: BoxConstraints.expand(height: 100.0),
             decoration: BoxDecoration(
-                color: Colors.green,
                 image: DecorationImage(
                     fit: BoxFit.fill, image: AssetImage('/images/logo.jpg'))),
           ),
@@ -32,17 +34,29 @@ class MenuBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.list),
             title: Text('Current Inventory'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Inventory()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.auto_delete),
             title: Text('Low Stock'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => LowStock()));
+            },
           ),
           ListTile(
             leading: Icon(Icons.shopping_basket),
             title: Text('Grocery List'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => GroceryList()));
+            },
           ),
         ],
       ),

@@ -6,6 +6,10 @@ import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 //import 'package:grocery_hub_capstone/pages/consume_item.dart';
 //import 'package:grocery_hub_capstone/pages/consume_arguments.dart';
 import 'package:grocery_hub_capstone/pages/consume_detailed.dart';
+import 'package:grocery_hub_capstone/pages/grocery_list_args.dart';
+import 'package:grocery_hub_capstone/pages/grocery_list_detailed.dart';
+import 'package:grocery_hub_capstone/pages/inventory_detailed.dart';
+import 'package:grocery_hub_capstone/pages/low_stock_detailed.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,11 +31,26 @@ class MyApp extends StatelessWidget {
           // '/profile': (context) => ConsumeItem()
         },
         onGenerateRoute: (settings) {
-          if (settings.name == '/detailed-profile') {
+          if (settings.name == '/consume-item') {
             Object? args = settings.arguments;
             return MaterialPageRoute(
                 builder: (context) =>
                     ConsumeDetailed(name: name, email: email));
+          } else if (settings.name == '/current-inventory') {
+            Object? args = settings.arguments;
+            return MaterialPageRoute(
+                builder: (context) =>
+                    InventoryDetailed(name: name, email: email));
+          } else if (settings.name == '/low-stock') {
+            Object? args = settings.arguments;
+            return MaterialPageRoute(
+                builder: (context) =>
+                    LowStockDetailed(name: name, email: email));
+          } else if (settings.name == '/grocery-list') {
+            Object? args = settings.arguments;
+            return MaterialPageRoute(
+                builder: (context) =>
+                    GroceryListDetailed(name: name, email: email));
           }
           return null;
         });
