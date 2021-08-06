@@ -13,8 +13,7 @@ class MenuBar extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.green,
                 image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage("/images/logo.jpg"))),
+                    fit: BoxFit.fill, image: AssetImage('/images/logo.jpg'))),
           ),
           ListTile(
             leading: Icon(Icons.home),
@@ -26,7 +25,8 @@ class MenuBar extends StatelessWidget {
             title: Text('Consume Item'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ConsumeItem()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ConsumeItem()));
             },
           ),
           ListTile(
