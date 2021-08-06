@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+// not using rn
+//import 'package:page_transition/page_transition.dart';
 
-import 'app_view.dart';
-import 'package:grocery_hub_capstone/routes/router_generator.dart';
-import 'package:grocery_hub_capstone/routes/routes.dart';
+import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 
-void main() {
-  runApp(MyApp());
-}
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -14,41 +13,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Grocery Hub',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blueGrey,
       ),
-      home: MyHomePage(title: 'Grocery Hub'),
-      // builder: (_, child) => AppView(
-      //   child: child(context),
-      // ),
-      initialRoute: routeHome,
-      navigatorKey: navKey,
-      
-      //onGenerateRoute: RouteGenerator,
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MenuBar(),
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Menu'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
+        child: Text('Home'),
       ),
     );
   }
