@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 
-class LowStock extends StatelessWidget {
-
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuBar(),
       appBar: AppBar(
-        title: Text('Low Stock'),
+        title: Text('Grocery Hub'),
       ),
-      body: Container(
-        child: Center(
-          child: Text('Low Stock'),
-        ),
+      body: Center(
+        child: Text('Home'),
       ),
     );
   }

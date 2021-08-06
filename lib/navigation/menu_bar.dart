@@ -3,6 +3,7 @@ import 'package:grocery_hub_capstone/pages/consume_item.dart';
 import 'package:grocery_hub_capstone/pages/grocery_list.dart';
 import 'package:grocery_hub_capstone/pages/inventory.dart';
 import 'package:grocery_hub_capstone/pages/low_stock.dart';
+import 'package:grocery_hub_capstone/pages/scan_item.dart';
 
 class MenuBar extends StatelessWidget {
   @override
@@ -20,42 +21,46 @@ class MenuBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.home),
             title: Text('Scan Item'),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MyHomePage()))
+            },
           ),
           ListTile(
             leading: Icon(Icons.delete),
             title: Text('Consume Item'),
             onTap: () {
-              Navigator.pop(context);
+              // Navigator.pop(context); takes user back home
+              // without pop, user sees menu options
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ConsumeItem()));
+                MaterialPageRoute(builder: (context) => ConsumeItem()));
             },
           ),
           ListTile(
             leading: Icon(Icons.list),
             title: Text('Current Inventory'),
             onTap: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Inventory()));
+                MaterialPageRoute(builder: (context) => Inventory()));
             },
           ),
           ListTile(
             leading: Icon(Icons.auto_delete),
             title: Text('Low Stock'),
             onTap: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => LowStock()));
+                context, MaterialPageRoute(builder: (context) => LowStock()));
             },
           ),
           ListTile(
             leading: Icon(Icons.shopping_basket),
             title: Text('Grocery List'),
             onTap: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => GroceryList()));
+                MaterialPageRoute(builder: (context) => GroceryList()));
             },
           ),
         ],

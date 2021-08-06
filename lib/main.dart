@@ -6,21 +6,21 @@ import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 //import 'package:grocery_hub_capstone/pages/consume_item.dart';
 //import 'package:grocery_hub_capstone/pages/consume_arguments.dart';
 import 'package:grocery_hub_capstone/pages/consume_detailed.dart';
-import 'package:grocery_hub_capstone/pages/grocery_list_args.dart';
 import 'package:grocery_hub_capstone/pages/grocery_list_detailed.dart';
 import 'package:grocery_hub_capstone/pages/inventory_detailed.dart';
 import 'package:grocery_hub_capstone/pages/low_stock_detailed.dart';
+import 'package:grocery_hub_capstone/pages/scan_item.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   var email;
-
   var name;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        
         title: 'Grocery Hub',
         theme: ThemeData(
           primarySwatch: Colors.blueGrey,
@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => MyHomePage(),
-          // '/profile': (context) => ConsumeItem()
         },
         onGenerateRoute: (settings) {
           if (settings.name == '/consume-item') {
@@ -57,17 +56,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MenuBar(),
-      appBar: AppBar(
-        title: Text('Grocery Hub'),
-      ),
-      body: Center(
-        child: Text('Home'),
-      ),
-    );
-  }
-}
+// class MyHomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       drawer: MenuBar(),
+//       appBar: AppBar(
+//         title: Text('Grocery Hub'),
+//       ),
+//       body: Center(
+//         child: Text('Home'),
+//       ),
+//     );
+//   }
+// }
