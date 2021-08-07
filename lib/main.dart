@@ -9,11 +9,14 @@ import 'package:grocery_hub_capstone/pages/consume_detailed.dart';
 import 'package:grocery_hub_capstone/pages/grocery_list_detailed.dart';
 import 'package:grocery_hub_capstone/pages/inventory_detailed.dart';
 import 'package:grocery_hub_capstone/pages/low_stock_detailed.dart';
-import 'package:grocery_hub_capstone/pages/scan_item.dart';
+import 'package:grocery_hub_capstone/pages/home.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  
+  static const String _title = 'Grocery Hub';
+
   var email;
   var name;
 
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         
-        title: 'Grocery Hub',
+        title: _title,
         theme: ThemeData(
           primarySwatch: Colors.blueGrey,
         ),
@@ -56,17 +59,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// class MyHomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       drawer: MenuBar(),
-//       appBar: AppBar(
-//         title: Text('Grocery Hub'),
-//       ),
-//       body: Center(
-//         child: Text('Home'),
-//       ),
-//     );
-//   }
-// }

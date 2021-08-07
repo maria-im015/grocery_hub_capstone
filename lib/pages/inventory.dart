@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 
+// content that loads on the inventory page
+
 class Inventory extends StatelessWidget {
 
   @override

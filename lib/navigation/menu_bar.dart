@@ -3,7 +3,7 @@ import 'package:grocery_hub_capstone/pages/consume_item.dart';
 import 'package:grocery_hub_capstone/pages/grocery_list.dart';
 import 'package:grocery_hub_capstone/pages/inventory.dart';
 import 'package:grocery_hub_capstone/pages/low_stock.dart';
-import 'package:grocery_hub_capstone/pages/scan_item.dart';
+import 'package:grocery_hub_capstone/pages/home.dart';
 
 class MenuBar extends StatelessWidget {
   @override
