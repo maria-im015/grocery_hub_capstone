@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 import 'package:grocery_hub_capstone/pages/home_detailed.dart';
+import 'package:grocery_hub_capstone/pages/page_models.dart';
 
-// content that loads on the home page
-
+// content that loads on the home page.
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -28,6 +28,8 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Container(child: PackageTypeWidget()),
               ]),
+          // NEED TO FIX
+          ///////////////
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,

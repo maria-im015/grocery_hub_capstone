@@ -1,22 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class ConsumeDetailed extends StatelessWidget {
-  final String name;
-  final String email;
+// Asks user if the item should be added to grocery list. 
+class AddGroceryListWidget extends StatefulWidget {
+  const AddGroceryListWidget({Key? key}) : super(key: key);
 
-  ConsumeDetailed({required this.name, required this.email});
+  @override
+  State<AddGroceryListWidget> createState() => _AddGroceryListWidgetState();
+}
+
+class _AddGroceryListWidgetState extends State<AddGroceryListWidget> {
+  String dropdownValue = 'Yes';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Consume Item'),
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.takeout_dining),
+      iconSize: 24,
+      elevation: 16,
+      style: const TextStyle(color: Colors.blueGrey),
+      underline: Container(
+        height: 2,
+        color: Colors.blueAccent,
       ),
-      body: Container(
-          child: ListTile(
-        title: Text(name),
-        subtitle: Text(email),
-      )),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+      },
+      items: <String>['Yes', 'No']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }
