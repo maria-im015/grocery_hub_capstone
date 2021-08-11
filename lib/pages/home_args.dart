@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:grocery_hub_capstone/pages/home_detailed.dart';
 
-class ScanItemArgs {
-  final String name;
-  final String email;
+class ExpirationDateArgs {
+  late final String date;
 
-  ScanItemArgs({required this.name, required this.email});
+  ExpirationDateArgs({required this.date});
 }
