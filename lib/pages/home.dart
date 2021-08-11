@@ -34,25 +34,31 @@ class MyHomePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Quantity to be Added:',
+                    'Quantity to be Added: ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                SizedBox(width:120.0, height:60.0, child: TextFormField(keyboardType: TextInputType.number, inputFormatters: [FilteringTextInputFormatter.digitsOnly],decoration: InputDecoration(hintText: 'Enter Quantity:'), maxLength: 3,
-                )
-                ),
+                SizedBox(
+                    width: 120.0,
+                    height: 60.0,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      decoration: InputDecoration(hintText: 'Enter Quantity: '),
+                      maxLength: 3,
+                    )),
               ]),
           Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Container(
+                Center(
                   child: Text(
-                    'Expiration Date:',
+                    'Expiration Date: ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Expanded(child: ExpirationDate())
+                Center(child: ExpirationDate())
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,10 +66,11 @@ class MyHomePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Location:',
+                    'Location: ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
+                Container(child: ItemLocationWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,10 +78,11 @@ class MyHomePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Essential Item?',
+                    'Essential Item? ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
+                Container(child: EssentialItemWidget()),
               ]),
         ]));
   }
