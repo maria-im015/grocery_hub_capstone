@@ -4,7 +4,7 @@ import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 import 'package:grocery_hub_capstone/pages/home_detailed.dart';
 import 'package:grocery_hub_capstone/pages/page_models.dart';
 
-// content that loads on the home page.
+// Content that loads on the home page.
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -22,14 +22,24 @@ class MyHomePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Select the type of Package:',
+                    'Item\'s name: ',
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+                  ),
+                ),
+                Container(child: ItemNameWidget()),
+              ]),
+          Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    'Type of Package:',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
                 Container(child: PackageTypeWidget()),
               ]),
-          // NEED TO FIX
-          ///////////////
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,15 +50,7 @@ class MyHomePage extends StatelessWidget {
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                SizedBox(
-                    width: 120.0,
-                    height: 60.0,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      decoration: InputDecoration(hintText: 'Enter Quantity: '),
-                      maxLength: 3,
-                    )),
+                Container(child: QuantityWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +66,7 @@ class MyHomePage extends StatelessWidget {
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
                   child: Text(
@@ -76,7 +78,7 @@ class MyHomePage extends StatelessWidget {
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
                   child: Text(

@@ -22,14 +22,24 @@ class ConsumeItem extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Select the type of Package:',
+                    'Item\'s name: ',
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+                  ),
+                ),
+                Container(child: ItemNameWidget()),
+              ]),
+          Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    'Type of Package:',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
                 Container(child: PackageTypeWidget()),
               ]),
-          // NEED TO FIX
-          ///////////////
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,19 +50,11 @@ class ConsumeItem extends StatelessWidget {
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                SizedBox(
-                    width: 120.0,
-                    height: 60.0,
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      decoration: InputDecoration(hintText: 'Enter Quantity: '),
-                      maxLength: 3,
-                    )),
+                Container(child: QuantityWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
                   child: Text(
@@ -64,7 +66,7 @@ class ConsumeItem extends StatelessWidget {
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
                   child: Text(

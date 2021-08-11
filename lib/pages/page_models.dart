@@ -1,7 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-// Dropdown menu for type of pacckage
+// Name of the item.
+class ItemNameWidget extends StatefulWidget {
+  const ItemNameWidget({Key? key}) : super(key: key);
+
+  @override
+  State<ItemNameWidget> createState() => _ItemNameWidgetState();
+}
+
+class _ItemNameWidgetState extends State<ItemNameWidget> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: <Widget>[
+      SizedBox(
+        width: 120.0,
+        height: 60.0,
+        child: TextField(
+          controller: _controller,
+          // text box alert
+          // onSubmitted: (String value) async {
+          //   await showDialog<void>(
+          //     context: context,
+          //     builder: (BuildContext context) {
+          //       return AlertDialog(
+          //         title: const Text('Thanks!'),
+          //         content: Text(
+          //             'You typed "$value", which has length ${value.characters.length}.'),
+          //         actions: <Widget>[
+          //           TextButton(
+          //             onPressed: () {
+          //               Navigator.pop(context);
+          //             },
+          //             child: const Text('OK'),
+          //           ),
+          //         ],
+          //       );
+          //     },
+          //   );
+          // },
+        ),
+      ),
+    ]);
+  }
+}
+
+// Dropdown menu for type of package
 class PackageTypeWidget extends StatefulWidget {
   const PackageTypeWidget({Key? key}) : super(key: key);
 
@@ -68,13 +127,48 @@ class _EssentialItemWidgetState extends State<EssentialItemWidget> {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['Yes', 'No']
-          .map<DropdownMenuItem<String>>((String value) {
+      items:
+          <String>['Yes', 'No'].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
         );
       }).toList(),
+    );
+  }
+}
+
+// Handles quantities for consume and add.
+class QuantityWidget extends StatefulWidget {
+  const QuantityWidget({Key? key}) : super(key: key);
+
+  @override
+  State<QuantityWidget> createState() => _QuantityWidgetState();
+}
+
+class _QuantityWidgetState extends State<QuantityWidget> {
+
+  final number = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        SizedBox(
+            width: 140.0,
+            height: 60.0,
+            child: TextFormField(
+              controller: number,
+              autocorrect: true,
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              decoration: InputDecoration(
+                  hintText: 'Enter Quantity', 
+                  // border: OutlineInputBorder()
+                  ),
+              maxLength: 3,
+            )),
+      ],
     );
   }
 }
