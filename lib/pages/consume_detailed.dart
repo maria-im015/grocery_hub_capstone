@@ -16,8 +16,8 @@ class _AddGroceryListWidgetState extends State<AddGroceryListWidget> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.takeout_dining),
-      iconSize: 24,
+      icon: const Icon(Icons.shopping_basket),
+      iconSize: 20,
       elevation: 16,
       style: const TextStyle(color: Colors.blueGrey),
       underline: Container(

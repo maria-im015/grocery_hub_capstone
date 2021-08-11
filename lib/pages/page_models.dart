@@ -33,6 +33,10 @@ class _ItemNameWidgetState extends State<ItemNameWidget> {
         height: 60.0,
         child: TextField(
           controller: _controller,
+          decoration: InputDecoration(
+                  hintText: 'Enter Name', 
+                  // border: OutlineInputBorder()
+                  ),
           // text box alert
           // onSubmitted: (String value) async {
           //   await showDialog<void>(
@@ -114,8 +118,8 @@ class _EssentialItemWidgetState extends State<EssentialItemWidget> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.takeout_dining),
-      iconSize: 24,
+      icon: const Icon(Icons.production_quantity_limits),
+      iconSize: 20,
       elevation: 16,
       style: const TextStyle(color: Colors.blueGrey),
       underline: Container(

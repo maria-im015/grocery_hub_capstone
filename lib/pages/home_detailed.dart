@@ -19,7 +19,7 @@ class _ItemLocationWidgetState extends State<ItemLocationWidget> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.takeout_dining),
+      icon: const Icon(Icons.place),
       iconSize: 24,
       elevation: 16,
       style: const TextStyle(color: Colors.blueGrey),
