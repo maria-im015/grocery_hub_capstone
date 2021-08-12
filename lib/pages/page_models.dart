@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-// Name of the item.
+// Form for name of item.
 class ItemNameWidget extends StatefulWidget {
   const ItemNameWidget({Key? key}) : super(key: key);
 
@@ -92,7 +92,46 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['Case', 'Pack', 'Single', 'Bottle', 'Can']
+      items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can']
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+// Dropdown menu for item location.
+class ItemLocationWidget extends StatefulWidget {
+  const ItemLocationWidget({Key? key}) : super(key: key);
+
+  @override
+  State<ItemLocationWidget> createState() => _ItemLocationWidgetState();
+}
+
+class _ItemLocationWidgetState extends State<ItemLocationWidget> {
+  String dropdownValue = 'Fridge';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.place),
+      iconSize: 24,
+      elevation: 16,
+      style: const TextStyle(color: Colors.blueGrey),
+      underline: Container(
+        height: 2,
+        color: Colors.blueAccent,
+      ),
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+        });
+      },
+      items: <String>['Fridge', 'Freezer', 'Downstairs Freezer', 'Stove Cabinet', 'Spice Rack', 'Lazy Susan', 'Pantry', 'Kitchen Island', 'Counter']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,

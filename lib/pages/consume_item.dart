@@ -58,6 +58,18 @@ class ConsumeItem extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
+                    'Location: ',
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+                  ),
+                ),
+                Container(child: ItemLocationWidget()),
+              ]),
+          Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Container(
+                  child: Text(
                     'Essential Item? ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),

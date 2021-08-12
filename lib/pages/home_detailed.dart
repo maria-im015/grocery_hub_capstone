@@ -4,45 +4,6 @@ import 'package:intl/intl.dart';
 // import 'package:intl/date_symbol_data_local.dart';
 // import 'package:grocery_hub_capstone/pages/home_args.dart';
 
-// Dropdown menu for item location.
-class ItemLocationWidget extends StatefulWidget {
-  const ItemLocationWidget({Key? key}) : super(key: key);
-
-  @override
-  State<ItemLocationWidget> createState() => _ItemLocationWidgetState();
-}
-
-class _ItemLocationWidgetState extends State<ItemLocationWidget> {
-  String dropdownValue = 'Fridge';
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.place),
-      iconSize: 24,
-      elevation: 16,
-      style: const TextStyle(color: Colors.blueGrey),
-      underline: Container(
-        height: 2,
-        color: Colors.blueAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['Fridge', 'Freezer', 'Pantry', 'Cabinet', 'Counter']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
-}
-
 // Item's expiration date.
 class ExpirationDate extends StatefulWidget {
   @override
