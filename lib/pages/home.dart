@@ -25,12 +25,12 @@ class MyHomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                // Container(
-                //   child: Text(
-                //     'Product\'s name: ',
-                //     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                //   ),
-                // ),
+                Container(
+                  child: Text(
+                    'Product\'s name: ',
+                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+                  ),
+                ),
                 Container(child: MyApp()),
               ]),
           Row(
