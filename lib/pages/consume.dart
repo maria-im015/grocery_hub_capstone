@@ -4,11 +4,11 @@ import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 import 'package:grocery_hub_capstone/pages/consume_detailed.dart';
 import 'package:grocery_hub_capstone/pages/page_models.dart';
 
-// Content that loads on the consume item page.
-class ConsumeItem extends StatelessWidget {
-  const ConsumeItem({Key? key}) : super(key: key);
+// Content that loads on the consume page.
+class ConsumeProduct extends StatelessWidget {
+  const ConsumeProduct({Key? key}) : super(key: key);
 
-  static const String _title = 'Grocery Hub - Consume Item';
+  static const String _title = 'Grocery Hub - Consume Product';
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class ConsumeItem extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Item\'s name: ',
+                    'Product\'s name: ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Container(child: ItemNameWidget()),
+                Container(child: ProductNameWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +62,7 @@ class ConsumeItem extends StatelessWidget {
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Container(child: ItemLocationWidget()),
+                Container(child: ProductLocationWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,11 +70,11 @@ class ConsumeItem extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Essential Item? ',
+                    'Essential Product? ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Container(child: EssentialItemWidget()),
+                Container(child: EssentialProductWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,

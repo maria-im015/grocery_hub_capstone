@@ -1,4 +1,9 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/services.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
 import 'package:grocery_hub_capstone/pages/home_detailed.dart';
@@ -8,7 +13,7 @@ import 'package:grocery_hub_capstone/pages/page_models.dart';
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
-  static const String _title = 'Grocery Hub - Home';
+  static const String _title = 'Grocery Hub - Hom';
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +25,13 @@ class MyHomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Container(
-                  child: Text(
-                    'Item\'s name: ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: ItemNameWidget()),
+                // Container(
+                //   child: Text(
+                //     'Product\'s name: ',
+                //     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+                //   ),
+                // ),
+                Container(child: MyApp()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,7 +79,7 @@ class MyHomePage extends StatelessWidget {
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Container(child: ItemLocationWidget()),
+                Container(child: ProductLocationWidget()),
               ]),
           Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,11 +87,11 @@ class MyHomePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   child: Text(
-                    'Essential Item? ',
+                    'Essential Product? ',
                     style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
                   ),
                 ),
-                Container(child: EssentialItemWidget()),
+                Container(child: EssentialProductWidget()),
               ]),
         ]));
   }

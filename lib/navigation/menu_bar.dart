@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_hub_capstone/pages/consume_item.dart';
+import 'package:grocery_hub_capstone/pages/consume.dart';
 import 'package:grocery_hub_capstone/pages/grocery_list.dart';
 import 'package:grocery_hub_capstone/pages/inventory.dart';
 import 'package:grocery_hub_capstone/pages/low_stock.dart';
@@ -20,7 +20,7 @@ class MenuBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Scan Item'),
+            title: Text('Scan Product'),
             onTap: () => {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MyHomePage()))
@@ -28,12 +28,12 @@ class MenuBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.delete),
-            title: Text('Consume Item'),
+            title: Text('Consume Product'),
             onTap: () {
               // Navigator.pop(context); takes user back home
               // without pop, user sees menu options
               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ConsumeItem()));
+                MaterialPageRoute(builder: (context) => ConsumeProduct()));
             },
           ),
           ListTile(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-// Asks user if the item should be added to grocery list. 
+// Asks user if the product should be added to grocery list. 
 class AddGroceryListWidget extends StatefulWidget {
   const AddGroceryListWidget({Key? key}) : super(key: key);
 

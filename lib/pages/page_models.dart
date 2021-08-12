@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
-// Form for name of item.
-class ItemNameWidget extends StatefulWidget {
-  const ItemNameWidget({Key? key}) : super(key: key);
+// Form for name of product.
+class ProductNameWidget extends StatefulWidget {
+  const ProductNameWidget({Key? key}) : super(key: key);
 
   @override
-  State<ItemNameWidget> createState() => _ItemNameWidgetState();
+  State<ProductNameWidget> createState() => _ProductNameWidgetState();
 }
 
-class _ItemNameWidgetState extends State<ItemNameWidget> {
+class _ProductNameWidgetState extends State<ProductNameWidget> {
   late TextEditingController _controller;
 
   @override
@@ -103,15 +103,15 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
   }
 }
 
-// Dropdown menu for item location.
-class ItemLocationWidget extends StatefulWidget {
-  const ItemLocationWidget({Key? key}) : super(key: key);
+// Dropdown menu for product's location.
+class ProductLocationWidget extends StatefulWidget {
+  const ProductLocationWidget({Key? key}) : super(key: key);
 
   @override
-  State<ItemLocationWidget> createState() => _ItemLocationWidgetState();
+  State<ProductLocationWidget> createState() => _ProductLocationWidgetState();
 }
 
-class _ItemLocationWidgetState extends State<ItemLocationWidget> {
+class _ProductLocationWidgetState extends State<ProductLocationWidget> {
   String dropdownValue = 'Fridge';
 
   @override
@@ -142,15 +142,15 @@ class _ItemLocationWidgetState extends State<ItemLocationWidget> {
   }
 }
 
-// Dropdown for essential items.
-class EssentialItemWidget extends StatefulWidget {
-  const EssentialItemWidget({Key? key}) : super(key: key);
+// Dropdown for essential products.
+class EssentialProductWidget extends StatefulWidget {
+  const EssentialProductWidget({Key? key}) : super(key: key);
 
   @override
-  State<EssentialItemWidget> createState() => _EssentialItemWidgetState();
+  State<EssentialProductWidget> createState() => _EssentialProductWidgetState();
 }
 
-class _EssentialItemWidgetState extends State<EssentialItemWidget> {
+class _EssentialProductWidgetState extends State<EssentialProductWidget> {
   String dropdownValue = 'Yes';
 
   @override

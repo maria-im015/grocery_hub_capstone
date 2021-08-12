@@ -1,10 +1,19 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+// import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+
+import 'package:grocery_hub_capstone/pages/home_args.dart';
+
 // import 'package:intl/date_symbol_data_local.dart';
 // import 'package:grocery_hub_capstone/pages/home_args.dart';
 
-// Item's expiration date.
+// Product's expiration date.
 class ExpirationDate extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -23,8 +32,7 @@ class _ExpirationDate extends State<ExpirationDate> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
+    return Row(children: <Widget>[
       SizedBox(
           width: 120.0,
           height: 60.0,
@@ -56,5 +64,69 @@ class _ExpirationDate extends State<ExpirationDate> {
             },
           ))
     ]);
+  }
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  final TextEditingController _controller = TextEditingController();
+  Future<Product>? _futureProduct;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: <Widget>[
+      SizedBox(
+        width: 120.0,
+        height: 60.0,
+        child: (_futureProduct == null) ? buildRow() : buildFutureBuilder(),
+      ),
+    ]);
+  }
+
+  Row buildRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        SizedBox(
+          width: 120.0,
+          height: 60.0,
+          child: TextField(
+            controller: _controller,
+            decoration: const InputDecoration(hintText: 'Enter Name'),
+          ),
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _futureProduct = createProduct(_controller.text);
+              });
+            },
+            child: const Text('Create Data'),
+          ),
+        ),
+      ],
+    );
+  }
+
+  FutureBuilder<Product> buildFutureBuilder() {
+    return FutureBuilder<Product>(
+      future: _futureProduct,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Text(snapshot.data!.name);
+        } else if (snapshot.hasError) {
+          return Text('${snapshot.error}');
+        }
+
+        return const CircularProgressIndicator();
+      },
+    );
   }
 }
