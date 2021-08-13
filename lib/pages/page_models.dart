@@ -1,6 +1,12 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+
+////// NEED TO ADD NULL SAFETY TO ALL /////
 
 // Form for name of product.
 class ProductNameWidget extends StatefulWidget {
@@ -27,40 +33,22 @@ class _ProductNameWidgetState extends State<ProductNameWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
-      SizedBox(
-        width: 120.0,
-        height: 60.0,
-        child: TextField(
-          controller: _controller,
-          decoration: InputDecoration(
-                  hintText: 'Enter Name', 
-                  // border: OutlineInputBorder()
-                  ),
-          // text box alert
-          // onSubmitted: (String value) async {
-          //   await showDialog<void>(
-          //     context: context,
-          //     builder: (BuildContext context) {
-          //       return AlertDialog(
-          //         title: const Text('Thanks!'),
-          //         content: Text(
-          //             'You typed "$value", which has length ${value.characters.length}.'),
-          //         actions: <Widget>[
-          //           TextButton(
-          //             onPressed: () {
-          //               Navigator.pop(context);
-          //             },
-          //             child: const Text('OK'),
-          //           ),
-          //         ],
-          //       );
-          //     },
-          //   );
-          // },
-        ),
+    return TextFormField(
+      keyboardType: TextInputType.text,
+      decoration: InputDecoration(
+        labelText: 'What is the Product\'s name?',
+        hintText: 'Enter Name',
+        icon: const Icon(Icons.store),
       ),
-    ]);
+      // icon: Icon(Icons.phone_iphone)),
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter the name';
+        }
+        print(value);
+        return null;
+      },
+    );
   }
 }
 
@@ -77,29 +65,79 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.takeout_dining),
-      iconSize: 24,
-      elevation: 16,
-      style: const TextStyle(color: Colors.blueGrey),
-      underline: Container(
-        height: 2,
-        color: Colors.blueAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can']
-          .map<DropdownMenuItem<String>>((String value) {
+    return Row(
+      children: <Widget>[
+        SizedBox(
+          width: 300.0,
+          height: 60.0,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Type of Package?',
+              icon: const Icon(Icons.takeout_dining),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 400.0,
+          height: 60.0,
+          child: DropdownButton<String>(
+            value: dropdownValue,
+            iconSize: 24,
+            elevation: 16,
+            style: const TextStyle(color: Colors.blueGrey),
+            underline: Container(
+              height: 2,
+              color: Colors.blueAccent,
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+            items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can']
+                .map<DropdownMenuItem<String>>((String value) {
+              print(value);
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// Handles quantities for consume and add.
+class QuantityWidget extends StatefulWidget {
+  const QuantityWidget({Key? key}) : super(key: key);
+
+  @override
+  State<QuantityWidget> createState() => _QuantityWidgetState();
+}
+
+class _QuantityWidgetState extends State<QuantityWidget> {
+  final number = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      keyboardType: TextInputType.number,
+      autocorrect: true,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      maxLength: 3,
+      decoration: InputDecoration(
+          labelText: 'What is the quantity?',
+          hintText: 'Enter Quantity',
+          icon: const Icon(Icons.phone_iphone)),
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter the quantity';
+        }
         print(value);
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
+        return null;
+      },
     );
   }
 }
@@ -117,29 +155,104 @@ class _ProductLocationWidgetState extends State<ProductLocationWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.place),
-      iconSize: 24,
-      elevation: 16,
-      style: const TextStyle(color: Colors.blueGrey),
-      underline: Container(
-        height: 2,
-        color: Colors.blueAccent,
+    return Row(
+      children: <Widget>[
+        SizedBox(
+          width: 300.0,
+          height: 60.0,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Product\'s Location?',
+              icon: const Icon(Icons.place),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 400.0,
+          height: 60.0,
+          child: DropdownButton<String>(
+            value: dropdownValue,
+            iconSize: 24,
+            elevation: 16,
+            style: const TextStyle(color: Colors.blueGrey),
+            underline: Container(
+              height: 2,
+              color: Colors.blueAccent,
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+            items: <String>[
+              'Fridge',
+              'Freezer',
+              'Downstairs Freezer',
+              'Stove Cabinet',
+              'Spice Rack',
+              'Lazy Susan',
+              'Pantry',
+              'Kitchen Island',
+              'Counter'
+            ].map<DropdownMenuItem<String>>((String value) {
+              print(value);
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// Product's expiration date.
+class ExpirationDate extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ExpirationDate();
+  }
+}
+
+class _ExpirationDate extends State<ExpirationDate> {
+  TextEditingController dateinput = TextEditingController();
+
+  @override
+  void initState() {
+    dateinput.text = "";
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: dateinput,
+      decoration: InputDecoration(
+        labelText: "Expiration Date?",
+        icon: const Icon(Icons.calendar_today),
       ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
+      readOnly: true,
+      onTap: () async {
+        final DateTime? pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2101));
+
+        if (pickedDate != null) {
+          // print(pickedDate);
+          String formattedDate = DateFormat('MM-dd-yyyy').format(pickedDate);
+          // print(formattedDate);
+          setState(() {
+            dateinput.text = formattedDate;
+            print(dateinput.text);
+          });
+        } else {
+          print("Date was not selected");
+        }
       },
-      items: <String>['Fridge', 'Freezer', 'Downstairs Freezer', 'Stove Cabinet', 'Spice Rack', 'Lazy Susan', 'Pantry', 'Kitchen Island', 'Counter']
-          .map<DropdownMenuItem<String>>((String value) {
-        print(value);
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
     );
   }
 }
@@ -157,63 +270,102 @@ class _EssentialProductWidgetState extends State<EssentialProductWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.production_quantity_limits),
-      iconSize: 20,
-      elevation: 16,
-      style: const TextStyle(color: Colors.blueGrey),
-      underline: Container(
-        height: 2,
-        color: Colors.blueAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items:
-          <String>['Yes', 'No'].map<DropdownMenuItem<String>>((String value) {
-        print(value);
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
+    return Row(
+      children: <Widget>[
+        SizedBox(
+          width: 300.0,
+          height: 60.0,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Essential Product?',
+              icon: const Icon(Icons.production_quantity_limits),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 400.0,
+          height: 60.0,
+          child: DropdownButton<String>(
+            value: dropdownValue,
+            iconSize: 20,
+            elevation: 16,
+            style: const TextStyle(color: Colors.blueGrey),
+            underline: Container(
+              height: 2,
+              color: Colors.blueAccent,
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+            items: <String>['Yes', 'No']
+                .map<DropdownMenuItem<String>>((String value) {
+              print(value);
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ),
+      ],
     );
   }
 }
 
-// Handles quantities for consume and add.
-class QuantityWidget extends StatefulWidget {
-  const QuantityWidget({Key? key}) : super(key: key);
+// Asks user if the product should be added to grocery list. 
+class AddGroceryListWidget extends StatefulWidget {
+  const AddGroceryListWidget({Key? key}) : super(key: key);
 
   @override
-  State<QuantityWidget> createState() => _QuantityWidgetState();
+  State<AddGroceryListWidget> createState() => _AddGroceryListWidgetState();
 }
 
-class _QuantityWidgetState extends State<QuantityWidget> {
-
-  final number = TextEditingController();
+class _AddGroceryListWidgetState extends State<AddGroceryListWidget> {
+  String dropdownValue = 'Yes';
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         SizedBox(
-            width: 140.0,
-            height: 60.0,
-            child: TextFormField(
-              controller: number,
-              autocorrect: true,
-              keyboardType: TextInputType.number,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: InputDecoration(
-                  hintText: 'Enter Quantity', 
-                  // border: OutlineInputBorder()
-                  ),
-              maxLength: 3,
-            )),
+          width: 300.0,
+          height: 60.0,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelText: 'Add to Grocery List?',
+              icon: const Icon(Icons.shopping_basket),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 400.0,
+          height: 60.0,
+          child: DropdownButton<String>(
+            value: dropdownValue,
+            iconSize: 20,
+            elevation: 16,
+            style: const TextStyle(color: Colors.blueGrey),
+            underline: Container(
+              height: 2,
+              color: Colors.blueAccent,
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                dropdownValue = newValue!;
+              });
+            },
+            items: <String>['Yes', 'No']
+                .map<DropdownMenuItem<String>>((String value) {
+              print(value);
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ),
       ],
     );
   }

@@ -1,41 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-// Asks user if the product should be added to grocery list. 
-class AddGroceryListWidget extends StatefulWidget {
-  const AddGroceryListWidget({Key? key}) : super(key: key);
+import 'package:grocery_hub_capstone/pages/page_models.dart';
+
+class ConsumeDetailed extends StatefulWidget {
+  const ConsumeDetailed({Key? key}) : super(key: key);
 
   @override
-  State<AddGroceryListWidget> createState() => _AddGroceryListWidgetState();
+  _ConsumeDetailedState createState() {
+    return _ConsumeDetailedState();
+  }
 }
 
-class _AddGroceryListWidgetState extends State<AddGroceryListWidget> {
-  String dropdownValue = 'Yes';
+class _ConsumeDetailedState extends State<ConsumeDetailed> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.shopping_basket),
-      iconSize: 20,
-      elevation: 16,
-      style: const TextStyle(color: Colors.blueGrey),
-      underline: Container(
-        height: 2,
-        color: Colors.blueAccent,
+    return Center(
+      child: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              ProductNameWidget(),
+              PackageTypeWidget(),
+              QuantityWidget(),
+              ProductLocationWidget(),
+              EssentialProductWidget(),
+              AddGroceryListWidget(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Item Removed!')),
+                      );
+                    }
+                  },
+                  child: const Text('Submit'),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['Yes', 'No']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
     );
   }
 }
+
+
+
+
