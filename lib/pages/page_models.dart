@@ -130,7 +130,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
       decoration: InputDecoration(
           labelText: 'What is the quantity?',
           hintText: 'Enter Quantity',
-          icon: const Icon(Icons.phone_iphone)),
+          icon: const Icon(Icons.exposure_rounded)),
       validator: (value) {
         if (value!.isEmpty) {
           return 'Please enter the quantity';
@@ -278,7 +278,7 @@ class _EssentialProductWidgetState extends State<EssentialProductWidget> {
           child: TextFormField(
             decoration: InputDecoration(
               labelText: 'Essential Product?',
-              icon: const Icon(Icons.production_quantity_limits),
+              icon: const Icon(Icons.production_quantity_limits_rounded),
             ),
           ),
         ),
