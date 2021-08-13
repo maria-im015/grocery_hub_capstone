@@ -20,79 +20,81 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
         drawer: MenuBar(),
         appBar: AppBar(title: const Text(_title)),
-        body: Column(children: <Widget>[
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Product\'s name: ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: MyApp()),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Type of Package:',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: PackageTypeWidget()),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Quantity to be Added: ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: QuantityWidget()),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Center(
-                  child: Text(
-                    'Expiration Date: ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Center(child: ExpirationDate())
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Location: ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: ProductLocationWidget()),
-              ]),
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Essential Product? ',
-                    style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
-                  ),
-                ),
-                Container(child: EssentialProductWidget()),
-              ]),
-        ]));
+        body: MyApp(),
+        // Column(children: <Widget>[
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Container(
+        //           child: Text(
+        //             'Product\'s name: ',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Container(child: MyApp()),
+        //       ]),
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Container(
+        //           child: Text(
+        //             'Type of Package:',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Container(child: PackageTypeWidget()),
+        //       ]),
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Container(
+        //           child: Text(
+        //             'Quantity to be Added: ',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Container(child: QuantityWidget()),
+        //       ]),
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Center(
+        //           child: Text(
+        //             'Expiration Date: ',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Center(child: ExpirationDate())
+        //       ]),
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Container(
+        //           child: Text(
+        //             'Location: ',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Container(child: ProductLocationWidget()),
+        //       ]),
+        //   Row(
+        //       crossAxisAlignment: CrossAxisAlignment.center,
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: <Widget>[
+        //         Container(
+        //           child: Text(
+        //             'Essential Product? ',
+        //             style: TextStyle(color: Colors.blueGrey, fontSize: 22.0),
+        //           ),
+        //         ),
+        //         Container(child: EssentialProductWidget()),
+        //       ]),
+        // ])
+        );
   }
 }

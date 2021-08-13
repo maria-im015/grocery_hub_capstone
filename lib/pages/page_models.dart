@@ -94,6 +94,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
       },
       items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can']
           .map<DropdownMenuItem<String>>((String value) {
+        print(value);
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -133,6 +134,7 @@ class _ProductLocationWidgetState extends State<ProductLocationWidget> {
       },
       items: <String>['Fridge', 'Freezer', 'Downstairs Freezer', 'Stove Cabinet', 'Spice Rack', 'Lazy Susan', 'Pantry', 'Kitchen Island', 'Counter']
           .map<DropdownMenuItem<String>>((String value) {
+        print(value);
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -172,6 +174,7 @@ class _EssentialProductWidgetState extends State<EssentialProductWidget> {
       },
       items:
           <String>['Yes', 'No'].map<DropdownMenuItem<String>>((String value) {
+        print(value);
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
