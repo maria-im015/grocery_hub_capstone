@@ -67,6 +67,8 @@ class _ExpirationDate extends State<ExpirationDate> {
   }
 }
 
+
+// new 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -82,39 +84,31 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+      
       SizedBox(
         width: 120.0,
-        height: 60.0,
-        child: (_futureProduct == null) ? buildRow() : buildFutureBuilder(),
+        height: 80.0,
+        child: (_futureProduct == null) ? buildColumn() : buildFutureBuilder(),
       ),
     ]);
   }
 
-  Row buildRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+  Column buildColumn() {
+    return Column(
       children: <Widget>[
-        SizedBox(
-          width: 120.0,
-          height: 60.0,
-          child: TextField(
+          TextField(
             controller: _controller,
             decoration: const InputDecoration(hintText: 'Enter Name'),
-          ),),
-        Expanded(
-          child: Center(
-          child: ElevatedButton(
+          ),
+          ElevatedButton(
             onPressed: () {
               setState(() {
                 _futureProduct = createProduct(_controller.text);
               });
-            }, child: null,),),),
-        Expanded(
-          child: Center(
-            child: const Text('Create Data'),
-        ),),
-      
+            },  child: Text('Enter', textAlign: TextAlign.end,),),
       ],
     );
   }
@@ -124,13 +118,63 @@ class _MyAppState extends State<MyApp> {
       future: _futureProduct,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          print(snapshot.data!.name);
           return Text(snapshot.data!.name);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
-
-        return const CircularProgressIndicator();
+        return const LinearProgressIndicator();
       },
     );
   }
 }
+
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Row(children: <Widget>[
+  //     SizedBox(
+  //       width: 120.0,
+  //       height: 80.0,
+  //       child: (_futureProduct == null) ? buildColumn() : buildFutureBuilder(),
+  //     ),
+  //   ]);
+  // }
+
+  // Column buildColumn() {
+  //   return Column(
+  //     mainAxisAlignment: MainAxisAlignment.start,
+  //     crossAxisAlignment: CrossAxisAlignment.stretch,
+  //     children: <Widget>[
+  //       // SizedBox(
+  //       //   width: 120.0,
+  //       //   height: 60.0,
+  //         // child:
+  //         TextField(
+  //           controller: _controller,
+  //           decoration: const InputDecoration(hintText: 'Enter Name'),
+  //         ),
+  //         ElevatedButton(
+  //           onPressed: () {
+  //             setState(() {
+  //               _futureProduct = createProduct(_controller.text);
+  //             });
+  //           }, child: const Text('Enter'),),
+  //         // ),
+
+  //       // Expanded(
+  //       //   child: Center(
+  //       //   child: ElevatedButton(
+  //       //     onPressed: () {
+  //       //       setState(() {
+  //       //         _futureProduct = createProduct(_controller.text);
+  //       //       });
+  //       //     }, child: const Text('Enter'),),),),
+  //       // Expanded(
+  //       //   child: Center(
+  //       //     child: const Text('Create Data'),
+  //       // ),),
+      
+  //     ],
+  //   );
+  // }
