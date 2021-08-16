@@ -94,7 +94,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
                 dropdownValue = newValue!;
               });
             },
-            items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can']
+            items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can', 'Bag']
                 .map<DropdownMenuItem<String>>((String value) {
               print(value);
               return DropdownMenuItem<String>(
@@ -314,7 +314,7 @@ class _EssentialProductWidgetState extends State<EssentialProductWidget> {
   }
 }
 
-// Asks user if the product should be added to grocery list. 
+// Asks user if the product should be added to grocery list.
 class AddGroceryListWidget extends StatefulWidget {
   const AddGroceryListWidget({Key? key}) : super(key: key);
 

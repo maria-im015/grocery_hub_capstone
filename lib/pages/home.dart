@@ -26,7 +26,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-
 class TestApi extends StatefulWidget {
   const TestApi({Key? key}) : super(key: key);
 
@@ -50,14 +49,16 @@ class _TestApiState extends State<TestApi> {
           headers: {
             "Content-Type": "application/json",
             "accept": "application/json",
-            "GROCY-API-KEY": GROCY_API_KEY!,    
+            "GROCY-API-KEY": GROCY_API_KEY!,
           },
           body: jsonEncode(<String, String>{
-            "qu_id_purchase": "3",
-            "qu_id_stock": "3",
-            "location_id": "2",
-            "name": "test7",
-            "qu_factor_purchase_to_stock": "5.0",
+            "qu_id_purchase": "2", //6 options: 1:nothing, 2:piece,  3:pack
+            // 4:case, 5:bottle, 6:can, 7:bag
+            "qu_id_stock": "9",
+            "location_id": "9", // 9 options: 1:nothing, 2:fridge,  3:freezer, 
+            // 4:DF, 5: stove cabinet, 6:spice rack, 7:lazy susan, 8:pantry, 9:ki
+            "name": "test18",
+            "qu_factor_purchase_to_stock": "4.0",
           }));
       print(response.body);
     } catch (err) {
