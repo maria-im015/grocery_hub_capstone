@@ -17,38 +17,48 @@ class ProductNameWidget extends StatefulWidget {
 }
 
 class _ProductNameWidgetState extends State<ProductNameWidget> {
-  late TextEditingController _controller;
+  final _productNameController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _controller = TextEditingController();
+  // }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _productNameController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: TextInputType.text,
-      decoration: InputDecoration(
-        labelText: 'What is the Product\'s name?',
-        hintText: 'Enter Name',
-        icon: const Icon(Icons.store),
-      ),
-      validator: (value) {
-        if (value!.isEmpty) {
-          print('Please enter the name');
-          // return 'Please enter the name';
-        }
-        final productName = value;
-        print(productName);
-        return null;
-      },
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(children: <Widget>[
+        TextFormField(
+          controller: _productNameController,
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            labelText: 'What is the Product\'s name?',
+            hintText: 'Enter Name',
+            icon: const Icon(Icons.store),
+          ),
+          validator: (value) {
+            if (value!.isEmpty) {
+              print('Please enter the name');
+              // return 'Please enter the name';
+            }
+            final productName = value;
+            print(productName);
+            return null;
+          },
+        ),
+        ElevatedButton(
+          onPressed: () => {print(_productNameController.text)},
+          child: const Text('Submit'),
+        ),
+      ]),
     );
   }
 }

@@ -32,31 +32,31 @@ class _HomeDetailedState extends State<HomeDetailed> {
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: <Widget>[
-              ProductNameWidget(),
-              PackageTypeWidget(),
-              QuantityWidget(),
-              ProductLocationWidget(),
-              ExpirationDate(),
-              EssentialProductWidget(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: ElevatedButton(
-                  onPressed: () => {
-                    if (_formKey.currentState!.validate()) {
+        child: Column(
+          children: <Widget>[
+            ProductNameWidget(),
+            PackageTypeWidget(),
+            QuantityWidget(),
+            ProductLocationWidget(),
+            ExpirationDate(),
+            EssentialProductWidget(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                onPressed: () => {
+                  if (_formKey.currentState!.validate())
+                    {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Product Created!')), 
-                      ), Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()))
+                        const SnackBar(content: Text('Product Created!')),
+                      ),
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MyHomePage()))
                     }
-                  },
-                  child: const Text('Submit'),
-                ),
+                },
+                child: const Text('Submit'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
