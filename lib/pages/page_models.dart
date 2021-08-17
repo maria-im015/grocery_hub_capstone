@@ -47,7 +47,7 @@ class _ProductNameWidgetState extends State<ProductNameWidget> {
         }
         final productName = value;
         print(productName);
-        return productName;
+        return null;
       },
     );
   }
@@ -141,7 +141,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
         }
         final productQuantity = value;
         print(productQuantity);
-        return productQuantity;
+        return null;
       },
     );
   }

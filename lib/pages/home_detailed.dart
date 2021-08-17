@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:grocery_hub_capstone/pages/home.dart';
 import 'package:grocery_hub_capstone/pages/page_models.dart';
 import 'package:http/http.dart' as http;
 
@@ -44,11 +45,11 @@ class _HomeDetailedState extends State<HomeDetailed> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () => {
                     if (_formKey.currentState!.validate()) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Item Created!')),
-                      );
+                        const SnackBar(content: Text('Product Created!')), 
+                      ), Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()))
                     }
                   },
                   child: const Text('Submit'),
