@@ -40,13 +40,14 @@ class _ProductNameWidgetState extends State<ProductNameWidget> {
         hintText: 'Enter Name',
         icon: const Icon(Icons.store),
       ),
-      // icon: Icon(Icons.phone_iphone)),
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Please enter the name';
+          print('Please enter the name');
+          // return 'Please enter the name';
         }
-        print(value);
-        return null;
+        final productName = value;
+        print(productName);
+        return productName;
       },
     );
   }
@@ -92,11 +93,13 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
             onChanged: (String? newValue) {
               setState(() {
                 dropdownValue = newValue!;
+                final packageType = dropdownValue;
+                print(packageType);
               });
             },
             items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can', 'Bag']
                 .map<DropdownMenuItem<String>>((String value) {
-              print(value);
+              // print(value);
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
@@ -133,10 +136,12 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           icon: const Icon(Icons.exposure_rounded)),
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Please enter the quantity';
+          // return 'Please enter the quantity';
+          print('Please enter the quantity');
         }
-        print(value);
-        return null;
+        final productQuantity = value;
+        print(productQuantity);
+        return productQuantity;
       },
     );
   }
@@ -182,6 +187,8 @@ class _ProductLocationWidgetState extends State<ProductLocationWidget> {
             onChanged: (String? newValue) {
               setState(() {
                 dropdownValue = newValue!;
+                final packageLocation = dropdownValue;
+                print(packageLocation);
               });
             },
             items: <String>[
@@ -195,7 +202,7 @@ class _ProductLocationWidgetState extends State<ProductLocationWidget> {
               'Kitchen Island',
               'Counter'
             ].map<DropdownMenuItem<String>>((String value) {
-              print(value);
+              // print(value);
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
@@ -247,7 +254,8 @@ class _ExpirationDate extends State<ExpirationDate> {
           // print(formattedDate);
           setState(() {
             dateinput.text = formattedDate;
-            print(dateinput.text);
+            final productExpDate = dateinput.text;
+            print(productExpDate);
           });
         } else {
           print("Date was not selected");
@@ -297,11 +305,13 @@ class _EssentialProductWidgetState extends State<EssentialProductWidget> {
             onChanged: (String? newValue) {
               setState(() {
                 dropdownValue = newValue!;
+                final isEssential = dropdownValue;
+                print(isEssential);
               });
             },
             items: <String>['Yes', 'No']
                 .map<DropdownMenuItem<String>>((String value) {
-              print(value);
+              // print(value);
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
@@ -354,11 +364,13 @@ class _AddGroceryListWidgetState extends State<AddGroceryListWidget> {
             onChanged: (String? newValue) {
               setState(() {
                 dropdownValue = newValue!;
+                final addGroceryList = dropdownValue;
+                print(addGroceryList);
               });
             },
             items: <String>['Yes', 'No']
                 .map<DropdownMenuItem<String>>((String value) {
-              print(value);
+              // print(value);
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
