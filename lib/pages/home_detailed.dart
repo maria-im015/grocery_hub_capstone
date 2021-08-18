@@ -53,7 +53,7 @@ class _HomeDetailedState extends State<HomeDetailed> {
                           MaterialPageRoute(builder: (context) => MyHomePage()))
                     }
                 },
-                child: const Text('Submit'),
+                child: const Text('Done!'),
               ),
             ),
           ],

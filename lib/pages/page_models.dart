@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:grocery_hub_capstone/pages/home_args.dart';
 import 'package:intl/intl.dart';
 
 ////// NEED TO ADD NULL SAFETY TO ALL /////
@@ -18,6 +19,10 @@ class ProductNameWidget extends StatefulWidget {
 
 class _ProductNameWidgetState extends State<ProductNameWidget> {
   final _productNameController = TextEditingController();
+
+  // added
+  final _formKey = GlobalKey<FormState>();
+  AddProduct product = AddProduct(productName: '');
 
   // @override
   // void initState() {
@@ -34,6 +39,9 @@ class _ProductNameWidgetState extends State<ProductNameWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      // added
+      key: _formKey,
+
       padding: const EdgeInsets.all(16.0),
       child: Column(children: <Widget>[
         TextFormField(
@@ -49,14 +57,19 @@ class _ProductNameWidgetState extends State<ProductNameWidget> {
               print('Please enter the name');
               // return 'Please enter the name';
             }
-            final productName = value;
-            print(productName);
+            // final productName = value;
+            // print(productName);
+            // product.productName = _productNameController as String;
+            // print(product.productName);
             return null;
           },
         ),
         ElevatedButton(
-          onPressed: () => {print(_productNameController.text)},
-          child: const Text('Submit'),
+          onPressed: () => {
+            product.productName = _productNameController.text,
+            print(product.productName)
+          },
+          child: const Text('Enter'),
         ),
       ]),
     );
@@ -131,28 +144,44 @@ class QuantityWidget extends StatefulWidget {
 }
 
 class _QuantityWidgetState extends State<QuantityWidget> {
-  final number = TextEditingController();
+  final _quantityController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      keyboardType: TextInputType.number,
-      autocorrect: true,
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-      maxLength: 3,
-      decoration: InputDecoration(
-          labelText: 'What is the quantity?',
-          hintText: 'Enter Quantity',
-          icon: const Icon(Icons.exposure_rounded)),
-      validator: (value) {
-        if (value!.isEmpty) {
-          // return 'Please enter the quantity';
-          print('Please enter the quantity');
-        }
-        final productQuantity = value;
-        print(productQuantity);
-        return null;
-      },
+    return Padding(
+      // added
+      key: _formKey,
+
+      padding: const EdgeInsets.all(16.0),
+      child: Column(children: <Widget>[
+        TextFormField(
+          controller: _quantityController,
+          keyboardType: TextInputType.number,
+          autocorrect: true,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          maxLength: 3,
+          decoration: InputDecoration(
+              labelText: 'What is the quantity?',
+              hintText: 'Enter Quantity',
+              icon: const Icon(Icons.exposure_rounded)),
+          validator: (value) {
+            if (value!.isEmpty) {
+              // return 'Please enter the quantity';
+              print('Please enter the quantity');
+            }
+            // final productQuantity = value;
+            // print(productQuantity);
+            return null;
+          },
+        ),
+        ElevatedButton(
+          onPressed: () => {
+            print(_quantityController.text),
+          },
+          child: const Text('Enter'),
+        ),
+      ]),
     );
   }
 }

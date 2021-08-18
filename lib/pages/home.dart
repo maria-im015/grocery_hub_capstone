@@ -29,18 +29,16 @@ class MyHomePage extends StatelessWidget {
 
 
 
-
-
-class TestApi extends StatefulWidget {
-  const TestApi({Key? key}) : super(key: key);
+class PostApi extends StatefulWidget {
+  const PostApi({Key? key}) : super(key: key);
 
   @override
-  _TestApiState createState() {
-    return _TestApiState();
+  _PostApiState createState() {
+    return _PostApiState();
   }
 }
 
-class _TestApiState extends State<TestApi> {
+class _PostApiState extends State<PostApi> {
   final url = "http://localhost:9283/api/objects/products";
 
 // // quantity unit purchase/stock are both package type
@@ -87,3 +85,6 @@ class _TestApiState extends State<TestApi> {
 }
 
 //// <<<<<<<<<
+///
+///
+
