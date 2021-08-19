@@ -120,7 +120,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
                 print(packageType);
               });
             },
-            items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can', 'Bag']
+            items: <String>['Case', 'Pack', 'Piece', 'Bottle', 'Can', 'Bag', 'Container']
                 .map<DropdownMenuItem<String>>((String value) {
               // print(value);
               return DropdownMenuItem<String>(

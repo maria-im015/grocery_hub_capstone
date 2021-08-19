@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
+import 'package:grocery_hub_capstone/pages/low_stock_detailed.dart';
 
 // content that loads on the low stock page
 
@@ -10,13 +11,9 @@ class LowStock extends StatelessWidget {
     return Scaffold(
       drawer: MenuBar(),
       appBar: AppBar(
-        title: Text('Low Stock'),
+        title: Text('Grocery Hub - Low Stock'),
       ),
-      body: Container(
-        child: Center(
-          child: Text('Low Stock'),
-        ),
-      ),
-    );
+      body: LowStockData(),
+      );
   }
 }
