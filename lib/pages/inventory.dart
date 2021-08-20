@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_hub_capstone/navigation/menu_bar.dart';
+import 'package:grocery_hub_capstone/pages/inventory_detailed.dart';
 
 // content that loads on the inventory page
 
@@ -10,13 +11,9 @@ class Inventory extends StatelessWidget {
     return Scaffold(
       drawer: MenuBar(),
       appBar: AppBar(
-        title: Text('Current Inventory'),
+        title: Text('Grocery Hub - Current Inventory'),
       ),
-      body: Container(
-        child: Center(
-          child: Text('Current Inventory'),
-        ),
-      ),
-    );
+      body: GetApi(),
+      );
   }
 }

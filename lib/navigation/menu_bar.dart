@@ -20,7 +20,7 @@ class MenuBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Scan Product'),
+            title: Text('Add Product'),
             onTap: () => {
               Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MyHomePage()))

@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 // import 'package:flutter/material.dart';
 // not using rn
@@ -19,7 +20,11 @@ import 'package:grocery_hub_capstone/pages/inventory.dart';
 import 'package:grocery_hub_capstone/pages/low_stock.dart';
 
 
-void main() => runApp(MyApp());
+Future main() async{
+  await dotenv.load(fileName: ".env");
+  
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   

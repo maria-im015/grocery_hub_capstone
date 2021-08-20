@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Product> createProduct(String name) async {
+Future<AddProduct> createProduct(String name) async {
   final response = await http.post(
     Uri.parse('https://jsonplaceholder.typicode.com/albums'),
     headers: <String, String>{
@@ -22,7 +22,7 @@ Future<Product> createProduct(String name) async {
   if (response.statusCode == 201) {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
-    return Product.fromJson(jsonDecode(response.body));
+    return AddProduct.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
@@ -30,27 +30,32 @@ Future<Product> createProduct(String name) async {
   }
 }
 
-class Product {
-  final int id;
-  final String name;
+class AddProduct {
+  // final int id;
+  String productName;
+  // String productQuantity;
 
-  Product({required this.id, required this.name});
+  AddProduct(
+      {
+      // required this.id,
+      required this.productName,
+      // required this.productQuantity
+      });
 
-  factory Product.fromJson(Map<String, dynamic> json) {
-    return Product(
-      id: json['id'],
-      name: json['name'],
+  factory AddProduct.fromJson(Map<String, dynamic> json) {
+    return AddProduct(
+      // id: json['id'],
+      productName: json['name'], 
+      // productQuantity: '',
     );
   }
 }
 
+// class Result extends StatelessWidget {
+//   Product product;
 
-
-
-
-
-
-
+//   Result({required this.product});
+// }
 
 // class ExpirationDateArgs {
 //   late final String date;
